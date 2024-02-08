@@ -44,10 +44,18 @@ public class FlightTicketRepository {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
+		em.persist(t);
+//		String hql = "INSERT INTO Ticket (from, status, to, total) VALUES (:from, :status, :to, :total)";
+//		Query query = em.createQuery(hql);
+//		query.setParameter("from", t.getFrom());
+//		query.setParameter("status", t.getStatus());
+//		query.setParameter("to", t.getTo());
+//		query.setParameter("total", t.getTotal());
+//		int result = query.executeUpdate();
+
 		for(User u: t.getPassengers()) {
 			em.persist(u);
 		}
-		em.persist(t);
 		et.commit();
 		
 	}

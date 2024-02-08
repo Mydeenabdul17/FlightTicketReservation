@@ -29,7 +29,8 @@ public class ChangeTicketStatusView {
 		System.out.println("Ticket Details");
 		System.out.println("Flight Details");
 		System.out.println("------------------");
-		Flight f = t.getFlight();
+//		Flight f = t.getFlight();
+		Flight f = t.getPassengers().get(0).getFlight();
 		System.out.println("Flight Number : "+f.getFlightNo()+"||Flight Name : "+f.getFlightName()+"||Departure Time : "+f.getDepartureTime()+"||Arrival Time : "+f.getArrivalTime()+"||From : "+t.getFrom()+"||To : "+t.getTo()+"||PNR No : "+t.getPnrNo()+"||Total Fare : "+t.getTotal());
 		System.out.println("Passenger Details");
 		System.out.println("------------------");

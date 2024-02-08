@@ -26,7 +26,7 @@ public class BookTicketViewModel {
 		for (User user : passengers) {
 			user.setFlight(preferedFlight);
 		}
-		t.setFlight(preferedFlight);
+//		t.setFlight(preferedFlight);
 		t.setPassengers(passengers);
 		t.setStatus("CNF");
 		t.setTotal(preferedFlight.getFare()*passengers.size());

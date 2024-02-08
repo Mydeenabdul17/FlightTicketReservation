@@ -2,34 +2,41 @@ package com.flightTicketReservation.dto;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 @Entity
 public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int pnrNo;
+	/*@Column(name = "`from`")
+private String from;
+*/
+	@Column(name = "`status`")
 	private String status;
-	@OneToOne
-	@JoinColumn
-	private Flight flight;
+	@Column(name = "`from`")
+	private String from;
+	@Column(name = "`to`")
+	private String to;
+	@Column(name = "`total`")
+	private double total;
+//	@OneToOne
+//	@JoinColumn
+//	private Flight flight;
 	@OneToMany(fetch = FetchType.EAGER)
 	private List<User> passengers;
-	private String from;
-	private String to;
-	private double total;
 	public int getPnrNo() {
 		return pnrNo;
 	}
-	public void setPnrNo(int pnrNo) {
-		this.pnrNo = pnrNo;
+	public void setPnrNo(int pnr) {
+		this.pnrNo = pnr;
 	}
 	public String getStatus() {
 		return status;
@@ -37,19 +44,6 @@ public class Ticket {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Flight getFlight() {
-		return flight;
-	}
-	public void setFlight(Flight flight) {
-		this.flight = flight;
-	}
-	public List<User> getPassengers() {
-		return passengers;
-	}
-	public void setPassengers(List<User> passengers) {
-		this.passengers = passengers;
-	}
-	
 	public String getFrom() {
 		return from;
 	}
@@ -67,6 +61,18 @@ public class Ticket {
 	}
 	public void setTotal(double total) {
 		this.total = total;
+	}
+//	public Flight getFlight() {
+//		return flight;
+//	}
+//	public void setFlight(Flight flight) {
+//		this.flight = flight;
+//	}
+	public List<User> getPassengers() {
+		return passengers;
+	}
+	public void setPassengers(List<User> passengers) {
+		this.passengers = passengers;
 	}
 	
 }
